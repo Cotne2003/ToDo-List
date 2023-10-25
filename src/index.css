@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url("/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
+}
