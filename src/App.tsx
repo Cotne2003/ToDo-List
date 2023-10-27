@@ -7,7 +7,10 @@ function App() {
   const [inputValue, setInputValue] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
   const [checkedIsDone, setCheckedIsDone] = useState(false);
-  const [countTodo, setCountTodo] = useState(0);
+
+  const itemsLeft = todos.filter((todo) => todo.isDone === false);
+  const activeTodos = todos.filter((todo) => todo.isDone === false);
+  const completedTodos = todos.filter((todo) => todo.isDone === true);
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,14 +22,6 @@ function App() {
       setInputValue("");
     }
     setCheckedIsDone(false);
-    todos.map((todo) => {
-      if (todo.isDone) {
-        setCountTodo(countTodo);
-      } else {
-        setCountTodo(countTodo + 1);
-      }
-      return countTodo;
-    });
   };
 
   return (
@@ -61,8 +56,9 @@ function App() {
         <TodoList
           todos={todos}
           setTodos={setTodos}
-          countTodo={countTodo}
-          setCountTodo={setCountTodo}
+          itemsLeft={itemsLeft}
+          activeTodos={activeTodos}
+          completedTodos={completedTodos}
         />
       </div>
     </main>
