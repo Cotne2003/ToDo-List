@@ -2,6 +2,7 @@ import { useState } from "react";
 import TodoList from "./components/TodoList";
 import Todo from "./model";
 import moon from "/icon-moon.svg";
+import sun from "/icon-sun.svg";
 
 function App() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -31,7 +32,12 @@ function App() {
         <h1 className="text-[#fff] text-[40px] font-bold tracking-[15px] cursor-default max-[549px]:text-[2.7rem]">
           TODO
         </h1>
-        <img src={moon} alt="app mode" className="max-[549px]:w-[2rem]" />
+        <img
+          src={darkMode ? sun : moon}
+          alt="app mode"
+          className="max-[549px]:w-[2rem] cursor-pointer"
+          onClick={() => setDarkMode(!darkMode)}
+        />
       </div>
       <form className="mt-[4.8rem] shadow-[0px_35px_50px_-15px_rgba(194,195,214,0.50)] max-[549px]:mt-[4rem]">
         <div className="w-full flex gap-[2.4rem] bg-white pl-[2.4rem] rounded-[5px] items-center h-[6.4rem] max-[549px]:h-[4.8rem] max-[549px]:pl-[2rem]">
@@ -53,7 +59,7 @@ function App() {
           go
         </button>
       </form>
-      <div className="bg-white mt-[2.4rem] rounded-[5px] shadow-[0px_35px_50px_-15px_rgba(194,195,214,0.50)]">
+      <div>
         <TodoList
           todos={todos}
           setTodos={setTodos}
