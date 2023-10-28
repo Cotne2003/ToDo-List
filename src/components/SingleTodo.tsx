@@ -24,10 +24,17 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
   };
   return (
     <li className="flex justify-between text-[1.8rem] items-center pt-[2rem] pb-[1.9rem] px-[2.4rem] border-b-[1px] border-b-[#E3E4F1]">
-      <p className="flex gap-[2.4rem] text-[#494C6B] tracking-[-0.25px]">
+      <p
+        style={
+          todo.isDone
+            ? { color: "#D1D2DA", textDecoration: "line-through" }
+            : {}
+        }
+        className="flex gap-[2.4rem] text-[#494C6B] tracking-[-0.25px]"
+      >
         <input
           type="checkbox"
-          className="w-[2.4rem] h-[2.4rem] checkbox-round"
+          className="w-[2.4rem] h-[2.4rem] cursor-pointer"
           checked={todo.isDone}
           onChange={() => checboxHandler(todo.id)}
         />
@@ -36,7 +43,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
       <img
         src={cross}
         onClick={() => removeTodo(todo.id)}
-        className="cursor-pointer"
+        className="cursor-pointer lg:opacity-0"
       />
     </li>
   );

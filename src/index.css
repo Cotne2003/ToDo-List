@@ -12,6 +12,39 @@ body {
   background-image: url("/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-position: top;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Josefin Sans", sans-serif;
+}
+
+ul li {
+  position: relative;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 1.8rem;
+  width: 1.8rem;
+  background-image: url("icon-cross.svg");
+  right: 2.4rem;
+  scale: 0;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+ul li:hover::before {
+  scale: 1;
+}
+
+@media (max-width: 1023px) {
+  ul li::before {
+    display: none;
+  }
+}
+
+@media (max-width: 549px) {
+  body {
+    background-image: url("bg-mobile-light.jpg");
+    background-size: contain;
+  }
 }

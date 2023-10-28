@@ -10,9 +10,9 @@ interface Props {
   completedTodos: Todo[];
 }
 
-const aroundP = "text-[#9495A5] text-[1.4rem] cursor-pointer";
+const aroundP = "text-[#9495A5] text-[1.4rem]";
 const middleP =
-  "text-[1.4rem] font-bold text-[#9495A5] hover:text-[#3A7CFD] cursor-pointer";
+  "text-[1.4rem] font-bold text-[#9495A5] hover:text-[#494C6B] cursor-pointer";
 
 const TodoList: React.FC<Props> = ({
   todos,
@@ -93,7 +93,7 @@ const TodoList: React.FC<Props> = ({
           </p>
         </div>
         <p
-          className={aroundP}
+          className={`cursor-pointer active:text-[#494c6b] hover:text-[#494c6b81] ${aroundP}`}
           onClick={() => {
             let filterTodos = todos.filter((todo) => todo.isDone === false);
             setTodos(filterTodos);
