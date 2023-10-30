@@ -8,6 +8,7 @@ interface Props {
   itemsLeft: Todo[];
   activeTodos: Todo[];
   completedTodos: Todo[];
+  darkMode: boolean;
 }
 
 const aroundP = "text-[#9495A5] text-[1.4rem]";
@@ -20,6 +21,7 @@ const TodoList: React.FC<Props> = ({
   itemsLeft,
   activeTodos,
   completedTodos,
+  darkMode,
 }) => {
   const [all, setAll] = useState(true);
   const [active, setActive] = useState(false);
@@ -27,7 +29,17 @@ const TodoList: React.FC<Props> = ({
 
   return (
     <>
-      <ul className="bg-white mt-[2.4rem] rounded-[5px] shadow-[0px_35px_50px_-15px_rgba(194,195,214,0.50)]">
+      <ul
+        className="bg-white mt-[2.4rem] rounded-[5px] shadow-[0px_35px_50px_-15px_rgba(194,195,214,0.50)]"
+        style={
+          darkMode
+            ? {
+                backgroundColor: "#25273D",
+                boxShadow: "0px 35px 50px -15px rgba(0, 0, 0, 0.50)",
+              }
+            : {}
+        }
+      >
         {all
           ? todos.map((todo) => (
               <SingleTodo
@@ -35,6 +47,7 @@ const TodoList: React.FC<Props> = ({
                 todo={todo}
                 todos={todos}
                 setTodos={setTodos}
+                darkMode={darkMode}
               />
             ))
           : active
@@ -44,6 +57,7 @@ const TodoList: React.FC<Props> = ({
                 todo={todo}
                 todos={todos}
                 setTodos={setTodos}
+                darkMode={darkMode}
               />
             ))
           : completed
@@ -53,6 +67,7 @@ const TodoList: React.FC<Props> = ({
                 todo={todo}
                 todos={todos}
                 setTodos={setTodos}
+                darkMode={darkMode}
               />
             ))
           : null}
