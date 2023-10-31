@@ -48,6 +48,34 @@ ul li:hover::before {
   top: 0;
 }
 
+.custom-checkbox {
+  width: 24px; /* Adjust the width of the checkbox */
+  height: 24px; /* Adjust the height of the checkbox */
+  appearance: none; /* Remove default styles (for some browsers) */
+  border: 1px solid #e3e4f1; /* Border style */
+  border-radius: 50%;
+  background-color: inherit; /* Background color when unchecked */
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background: linear-gradient(135deg, #5df 0%, #c058f3 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.custom-checkbox::after {
+  content: "\2713"; /* Unicode checkmark character */
+  font-size: 16px; /* Adjust the size of the checkmark */
+  color: #fff; /* Color of the checkmark when checked */
+  display: none;
+  margin-top: 1px;
+}
+
+.custom-checkbox:checked::after {
+  display: block;
+}
+
 @media (max-width: 1023px) {
   ul li::before {
     display: none;
@@ -55,6 +83,12 @@ ul li:hover::before {
 }
 
 @media (max-width: 549px) {
-  body {
+  .custom-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .custom-checkbox::after {
+    font-size: 13px;
   }
 }

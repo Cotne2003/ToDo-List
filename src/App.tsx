@@ -70,12 +70,13 @@ function App() {
           >
             <input
               type="checkbox"
-              className="w-[2.4rem] h-[2.4rem] checkbox-round cursor-pointer max-[549px]:w-[2rem] max-[549px]:h-[2rem]"
+              className="custom-checkbox"
               onChange={() => setCheckedIsDone(!checkedIsDone)}
               checked={checkedIsDone}
+              style={darkMode ? { border: "1px solid #393A4B" } : {}}
             />
             <input
-              className="h-full w-full py-[2.3rem] rounded-[5px] border-none outline-none caret-[#3A7CFD] placeholder:text-[1.8rem] text-[1.8rem] text-[#393A4B] max-[549px]:py-[1.8rem] max-[549px]:placeholder:text-[1.2rem] max-[549px]:text-[1.2rem]"
+              className="h-full w-[45rem] py-[2.3rem] rounded-[5px] border-none outline-none caret-[#3A7CFD] placeholder:text-[1.8rem] text-[1.8rem] text-[#393A4B] max-[549px]:py-[1.8rem] max-[549px]:placeholder:text-[1.2rem] max-[549px]:text-[1.2rem] max-[549px]:w-[24rem]"
               type="input"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
